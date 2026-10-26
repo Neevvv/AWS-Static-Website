@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <div class="logo">DS</div>
+        <div>
+            <h1>Data Structures Lab</h1>
+            <p>Interactive Data Structures Project</p>
+        </div>
+    </div>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h3>DATA STRUCTURES</h3>
+        <button class="nav-btn active" onclick="showSection('home', this)">⌂ Overview</button>
+        <button class="nav-btn" onclick="showSection('array', this)">▦ Array</button>
+        <button class="nav-btn" onclick="showSection('stack', this)">▤ Stack</button>
+        <button class="nav-btn" onclick="showSection('queue', this)">⇥ Queue</button>
+        <button class="nav-btn" onclick="showSection('linkedlist', this)">⛓ Linked List</button>
+        <button class="nav-btn" onclick="showSection('tree', this)">⌘ Tree</button>
+        <button class="nav-btn" onclick="showSection('graph', this)">● Graph</button>
+    </aside>
+
+    <main>
+        <!-- HOME -->
+        <section id="home" class="section active-section">
+            <div class="hero">
+                <span class="tag">DATA STRUCTURES PROJECT</span>
+                <h2>Learn by <span>doing.</span></h2>
+                <p>Explore the basic data structures through simple interactive operations and visual representations.</p>
+            </div>
+
+            <div class="cards">
+                <div class="topic-card" onclick="openTopic('array')">
+                    <div class="card-icon">▦</div><h3>Array</h3>
+                    <p>Store elements in continuous positions and perform insertion, deletion and searching.</p>
+                </div>
+                <div class="topic-card" onclick="openTopic('stack')">
+                    <div class="card-icon">▤</div><h3>Stack</h3>
+                    <p>LIFO structure with Push, Pop and Peek operations.</p>
+                </div>
+                <div class="topic-card" onclick="openTopic('queue')">
+                    <div class="card-icon">⇥</div><h3>Queue</h3>
+                    <p>FIFO structure with Enqueue and Dequeue operations.</p>
+                </div>
+                <div class="topic-card" onclick="openTopic('linkedlist')">
+                    <div class="card-icon">⛓</div><h3>Linked List</h3>
+                    <p>Nodes connected using links with insertion and deletion operations.</p>
+                </div>
+                <div class="topic-card" onclick="openTopic('tree')">
+                    <div class="card-icon">⌘</div><h3>Binary Search Tree</h3>
+                    <p>Hierarchical structure supporting insertion, search, deletion and traversal.</p>
+                </div>
+                <div class="topic-card" onclick="openTopic('graph')">
+                    <div class="card-icon">●</div><h3>Graph</h3>
+                    <p>Vertices and edges with adjacency representation and BFS/DFS traversal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARRAY -->
+        <section id="array" class="section">
+            <div class="section-head">
+                <div><span class="tag">LINEAR DATA STRUCTURE</span><h2>Array</h2><p>Elements are stored in indexed positions.</p></div>
+            </div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>An array stores elements of the same type in contiguous memory locations.</p></div>
+<div class="info-card"><h3>Features</h3><p>Indexed access • Fixed size • Fast direct access • Same data type</p></div>
+<div class="info-card"><h3>Types</h3><p>One-dimensional • Two-dimensional • Multidimensional</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: numbered seats or lockers. Arrays are also used for marks, temperatures and lists of IDs.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Value</label><input id="arrayValue" type="number" placeholder="e.g. 25">
+                    <label>Index</label><input id="arrayIndex" type="number" min="0" placeholder="e.g. 2">
+                    <div class="button-grid">
+                        <button onclick="arrayInsert()">Insert</button>
+                        <button onclick="arrayDelete()">Delete</button>
+                        <button onclick="arraySearch()">Search</button>
+                        <button class="secondary" onclick="resetArray()">Reset</button>
+                    </div>
+                    <div class="info-box"><b>Operations</b><br>Insert • Delete • Search • Display</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Array Visualization <span id="arrayStatus">Ready</span></div>
+                    <div id="arrayView" class="array-view"></div>
+                    <div class="complexity"><span>Access: O(1)</span><span>Search: O(n)</span><span>Insert/Delete: O(n)</span></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="arrayQuiz1"></div>
+<div class="quiz-question" id="arrayQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('array')">Check Answers</button>
+<span class="quiz-result" id="arrayQuizResult"></span>
+</div></section>
+
+        <!-- STACK -->
+        <section id="stack" class="section">
+            <div class="section-head"><span class="tag">LIFO</span><h2>Stack</h2><p>Last In, First Out — the last element inserted is removed first.</p></div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>A stack is a linear data structure that follows LIFO (Last In, First Out).</p></div>
+<div class="info-card"><h3>Features</h3><p>LIFO • Push and Pop operations • Access through TOP</p></div>
+<div class="info-card"><h3>Types</h3><p>Static stack • Dynamic stack</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: a stack of plates. It is also used for browser history, undo operations and function calls.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Value</label><input id="stackValue" type="number" placeholder="e.g. 40">
+                    <div class="button-grid">
+                        <button onclick="pushStack()">Push</button>
+                        <button onclick="popStack()">Pop</button>
+                        <button onclick="peekStack()">Peek</button>
+                        <button class="secondary" onclick="resetStack()">Reset</button>
+                    </div>
+                    <div class="info-box"><b>TOP</b><br>Push adds an element to the top.<br>Pop removes the top element.</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Stack Visualization <span id="stackStatus">Ready</span></div>
+                    <div id="stackView" class="stack-view"></div>
+                    <div class="complexity"><span>Push: O(1)</span><span>Pop: O(1)</span><span>Peek: O(1)</span></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="stackQuiz1"></div>
+<div class="quiz-question" id="stackQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('stack')">Check Answers</button>
+<span class="quiz-result" id="stackQuizResult"></span>
+</div></section>
+
+        <!-- QUEUE -->
+        <section id="queue" class="section">
+            <div class="section-head"><span class="tag">FIFO</span><h2>Queue</h2><p>First In, First Out — the first element inserted is removed first.</p></div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>A queue is a linear data structure that follows FIFO (First In, First Out).</p></div>
+<div class="info-card"><h3>Features</h3><p>FIFO • Insertion at rear • Deletion at front</p></div>
+<div class="info-card"><h3>Types</h3><p>Simple queue • Circular queue • Priority queue • Deque</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: people waiting at a ticket counter. Queues are also used in printers and task scheduling.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Value</label><input id="queueValue" type="number" placeholder="e.g. 40">
+                    <div class="button-grid">
+                        <button onclick="enqueue()">Enqueue</button>
+                        <button onclick="dequeue()">Dequeue</button>
+                        <button onclick="frontQueue()">Front</button>
+                        <button class="secondary" onclick="resetQueue()">Reset</button>
+                    </div>
+                    <div class="info-box"><b>FRONT → REAR</b><br>Enqueue adds at the rear.<br>Dequeue removes from the front.</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Queue Visualization <span id="queueStatus">Ready</span></div>
+                    <div id="queueView" class="queue-view"></div>
+                    <div class="complexity"><span>Enqueue: O(1)</span><span>Dequeue: O(1)</span><span>Front: O(1)</span></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="queueQuiz1"></div>
+<div class="quiz-question" id="queueQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('queue')">Check Answers</button>
+<span class="quiz-result" id="queueQuizResult"></span>
+</div></section>
+
+        <!-- LINKED LIST -->
+        <section id="linkedlist" class="section">
+            <div class="section-head"><span class="tag">NODES + LINKS</span><h2>Linked List</h2><p>A sequence of nodes where each node stores data and a link to the next node.</p></div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>A linked list is made of nodes where each node stores data and a link to the next node.</p></div>
+<div class="info-card"><h3>Features</h3><p>Dynamic size • Nodes connected by links • Easy insertion and deletion</p></div>
+<div class="info-card"><h3>Types</h3><p>Singly • Doubly • Circular</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: a music playlist where each song points to the next. Linked lists are also used in memory management.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Value</label><input id="listValue" type="number" placeholder="e.g. 30">
+                    <label>Position</label><input id="listPosition" type="number" min="1" placeholder="1">
+                    <div class="button-grid">
+                        <button onclick="listInsertHead()">Insert Head</button>
+                        <button onclick="listInsertTail()">Insert Tail</button>
+                        <button onclick="listInsertPosition()">Insert Position</button>
+                        <button onclick="listDelete()">Delete Position</button>
+                        <button class="secondary" onclick="resetList()">Reset</button>
+                    </div>
+                    <div class="info-box"><b>Example</b><br>HEAD → [10|next] → [20|next] → NULL</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Linked List Visualization <span id="listStatus">Ready</span></div>
+                    <div id="listView" class="list-view"></div>
+                    <div class="complexity"><span>Head Insert: O(1)</span><span>Search: O(n)</span><span>Position: O(n)</span></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="linkedlistQuiz1"></div>
+<div class="quiz-question" id="linkedlistQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('linkedlist')">Check Answers</button>
+<span class="quiz-result" id="linkedlistQuizResult"></span>
+</div></section>
+
+        <!-- TREE -->
+        <section id="tree" class="section">
+            <div class="section-head"><span class="tag">NON-LINEAR</span><h2>Binary Search Tree</h2><p>Smaller values go left and larger values go right.</p></div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>A tree is a non-linear hierarchical structure. In a Binary Search Tree, smaller values go left and larger values go right.</p></div>
+<div class="info-card"><h3>Features</h3><p>Hierarchical structure • Root and child nodes • Efficient BST searching</p></div>
+<div class="info-card"><h3>Types</h3><p>Binary tree • Binary Search Tree • AVL tree • Heap</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: computer folders or a family hierarchy. Trees are also used in databases and searching.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Value</label><input id="treeValue" type="number" placeholder="e.g. 50">
+                    <div class="button-grid">
+                        <button onclick="treeInsert()">Insert</button>
+                        <button onclick="treeDelete()">Delete</button>
+                        <button onclick="treeSearch()">Search</button>
+                        <button class="secondary" onclick="resetTree()">Reset</button>
+                    </div>
+                    <div class="traversal">
+                        <b>Traversals</b>
+                        <button onclick="showTraversal('inorder')">Inorder</button>
+                        <button onclick="showTraversal('preorder')">Preorder</button>
+                        <button onclick="showTraversal('postorder')">Postorder</button>
+                    </div>
+                    <div class="info-box">In a BST: Left &lt; Root &lt; Right</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Tree Visualization <span id="treeStatus">Ready</span></div>
+                    <div id="treeView" class="tree-view"></div>
+                    <div id="traversalOutput" class="output"></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="treeQuiz1"></div>
+<div class="quiz-question" id="treeQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('tree')">Check Answers</button>
+<span class="quiz-result" id="treeQuizResult"></span>
+</div></section>
+
+        <!-- GRAPH -->
+        <section id="graph" class="section">
+            <div class="section-head"><span class="tag">NON-LINEAR</span><h2>Graph</h2><p>A graph contains vertices connected by edges.</p></div>
+            <div class="topic-info">
+<div class="info-card"><h3>Definition</h3><p>A graph contains vertices (nodes) connected by edges.</p></div>
+<div class="info-card"><h3>Features</h3><p>Vertices and edges • Represents relationships • BFS and DFS traversal</p></div>
+<div class="info-card"><h3>Types</h3><p>Directed • Undirected • Weighted • Unweighted</p></div>
+<div class="info-card wide"><h3>Applications / Real-life Example</h3><p>Real-life example: a road map where cities are vertices and roads are edges. Social and computer networks also use graphs.</p></div>
+</div><div class="workspace">
+                <div class="control-panel">
+                    <label>Vertex A</label><input id="graphA" type="number" min="1" max="8" placeholder="1">
+                    <label>Vertex B</label><input id="graphB" type="number" min="1" max="8" placeholder="2">
+                    <div class="button-grid">
+                        <button onclick="addEdge()">Add Edge</button>
+                        <button onclick="removeEdge()">Remove Edge</button>
+                        <button onclick="runBFS()">BFS</button>
+                        <button onclick="runDFS()">DFS</button>
+                        <button class="secondary" onclick="resetGraph()">Reset</button>
+                    </div>
+                    <div class="info-box"><b>Graph</b><br>8 vertices are available.<br>Edges are undirected.</div>
+                </div>
+                <div class="visual-panel">
+                    <div class="panel-title">Graph Visualization <span id="graphStatus">Ready</span></div>
+                    <div id="graphView" class="graph-view"></div>
+                    <div id="graphOutput" class="output"></div>
+                </div>
+            </div>
+        <div class="quiz-box">
+<div class="quiz-heading"><span class="tag">QUICK QUIZ</span><h3>Test your knowledge</h3><p>Answer the questions to check your understanding.</p></div>
+<div class="quiz-question" id="graphQuiz1"></div>
+<div class="quiz-question" id="graphQuiz2"></div>
+<button class="quiz-check" onclick="checkQuiz('graph')">Check Answers</button>
+<span class="quiz-result" id="graphQuizResult"></span>
+</div></section>
+    </main>
+</div>
+
+<footer>Data Structures Lab • College Project</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
